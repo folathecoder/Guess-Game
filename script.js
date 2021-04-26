@@ -43,7 +43,7 @@ check.addEventListener('click', function (e) {
     if (!guess) {
         console.log(`Not a number!`);
 
-        message.textContent = `Oopps!🤷‍♂️...Not a number!`;
+        message.textContent = `Oopps!...Not a number!`;
 
         const currentScore = gameScore - 1;
 
