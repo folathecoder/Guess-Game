@@ -6,57 +6,15 @@
 
 const check = document.querySelector('.check');
 
-const message = document.querySelector('.message');
+check.addEventListener('click', function(e) {
 
-const bodyBg = document.querySelector('.body-bg');
+    const guessedNumber = document.querySelector('.guess').value;
 
-// const body = document.getElementsByTagName('body');
-
-// Array.from(body).forEach(
-//     function (e) {
-//         console.log(e);
-//     }
-// )
-
-// const score = document.querySelector('.score').textContent;
-// const gameScore = Number(score);
-// console.log(gameScore, typeof(gameScore));
-
-check.addEventListener('click', function (e) {
-
-    const guess = document.querySelector('.guess').value;
-
-    // const score = document.querySelector('.score').text;
-
-    console.log(guess);
-
-
-
-    const score = document.querySelector('.score').textContent;
-    const gameScore = Number(score);
-    console.log(gameScore, typeof(gameScore));
-
-
-
-
-
-    if (!guess) {
-        console.log(`Not a number!`);
-
-        message.textContent = `Oopps!...Not a number!`;
-
-        const currentScore = gameScore - 1;
-
-        console.log(currentScore);
-
-
+    if (!guessedNumber) {
+        console.log(`Oops! 🤷‍♀️.... Enter only a number!`)
     }
     else {
-        message.textContent = `Nice👌, try again!`;
-
-        const currentScore = gameScore + 1;
-
-        console.log(currentScore);
-
+        console.log(`You guessed ${guessedNumber}!`);
     }
+
 })
