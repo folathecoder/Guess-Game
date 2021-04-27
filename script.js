@@ -5,8 +5,8 @@
 // Implement randomly generated numbers
 
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
-const number = document.querySelector(".number");
-number.textContent = secretNumber;
+// const number = document.querySelector(".number");
+// number.textContent = secretNumber;
 
 // Assign initial score value
 
@@ -31,19 +31,54 @@ check.addEventListener('click', function (e) {
         // Increase the score by 1
         score = score + 1;
         document.querySelector('.score').textContent = score;
+
+        //Change background color when score is correct
+        document.querySelector('.body-bg').style.backgroundColor = '#60b347';
+
+        //Change Width when correct
+        document.querySelector('.number').style.width = '30rem';
+
+        //Display Secret Number
+        const number = document.querySelector(".number");
+        number.textContent = secretNumber;
     }
     else if (guessedNumber > secretNumber) {
-        message.textContent = `😢 Too high!`;
-        // Decrease the score by 1
-        score = score - 1;
-        document.querySelector('.score').textContent = score;
+
+        if (score > 0) {
+            message.textContent = `😢 Too high!`;
+            // Decrease the score by 1
+            score = score - 1;
+            document.querySelector('.score').textContent = score;
+        }
+        else {
+            message.textContent = `You lost the game! 🤣`;
+
+            //Display Secret Number
+            const number = document.querySelector(".number");
+            number.textContent = secretNumber;
+
+            //Change Width when correct
+            document.querySelector('.number').style.width = '30rem';
+        }
     }
+
     else if (guessedNumber < secretNumber) {
-        message.textContent = `😢 Too low!`;
-        // Decrease the score by 1
-        score = score - 1;
-        document.querySelector('.score').textContent = score;
+
+        if (score > 0) {
+            message.textContent = `😢 Too Low!`;
+
+            // Decrease the score by 1
+            score = score - 1;
+            document.querySelector('.score').textContent = score;
+
+            //Change background color when score is wrong
+            document.querySelector('.body-bg').style.backgroundColor = '#fffff';
+        }
+    
+        else {
+            message.textContent = `You lost the game! 🤣`;
+        }
     }
-
-
 })
+
+// Reset Game When Again is Clicked
