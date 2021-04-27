@@ -8,10 +8,12 @@ const check = document.querySelector('.check');
 
 check.addEventListener('click', function(e) {
 
-    const guessedNumber = document.querySelector('.guess').value;
+    const guessedNumber = Number(document.querySelector('.guess').value);
+
+    const message = document.querySelector('.message');
 
     if (!guessedNumber) {
-        console.log(`Oops! 🤷‍♀️.... Enter only a number!`)
+        message.textContent = `🤷‍♂️ Enter a Number!`;
     }
     else {
         console.log(`You guessed ${guessedNumber}!`);
