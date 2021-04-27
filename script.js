@@ -82,3 +82,5 @@ check.addEventListener('click', function (e) {
 })
 
 // Reset Game When Again is Clicked
+
+const resetBtn = document.querySelector('.again');
