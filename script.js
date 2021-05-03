@@ -1,19 +1,21 @@
 'use strict';
-
 // ============= START PROJECT ===============
 
-// Implement randomly generated numbers
-
+//* Implement randomly generated numbers
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-// const number = document.querySelector(".number");
-// number.textContent = secretNumber;
 
-// Assign initial score value
-
+//* Assign initial score value
 let score = 20;
 
-// Enable any value appear in the console on click of the "Check!" button
+//* Assign intial highscore 
+let highScore = 0;
 
+//* Creat functions for dryer codes
+const messageContent = function (message) {
+    message.textContent = message;
+}
+
+//* Enable any value appear in the console on click of the "Check!" button
 const check = document.querySelector('.check');
 
 check.addEventListener('click', function (e) {
@@ -25,10 +27,12 @@ check.addEventListener('click', function (e) {
     if (guessedNumber <= 20 && guessedNumber >= 1) {
 
         if (!guessedNumber) {
-            message.textContent = `🤷‍♂️ Enter a Number!`;
+            messageContent(`🤷‍♂️ Enter a Number!`);
+            // message.textContent = `🤷‍♂️ Enter a Number!`;
         }
         else if (guessedNumber === secretNumber) {
-            message.textContent = `🎉 You guessed right!`;
+
+            messageContent(`🎉 You guessed right!`);
     
             // Increase the score by 1
             score = score + 1;
@@ -43,6 +47,12 @@ check.addEventListener('click', function (e) {
             //Display Secret Number
             const number = document.querySelector(".number");
             number.textContent = secretNumber;
+
+            //Display Highscore
+            if (score > highScore) {
+                highScore = score;
+                document.querySelector('.highscore').textContent = highScore;
+            }
         }
         else if (guessedNumber > secretNumber) {
     
@@ -62,7 +72,7 @@ check.addEventListener('click', function (e) {
                 //Change Width when correct
                 document.querySelector('.number').style.width = '30rem';
     
-                //Change background color when score is wrong
+                //! Change background color when score is wrong
                 document.querySelector('.body-bg').style.backgroundColor = '#ff0000';
             }
         }
@@ -121,5 +131,4 @@ reload.addEventListener('click', function (e) {
 
     //Restore Input Field 
     document.querySelector('.guess').value = '';
-
 })
