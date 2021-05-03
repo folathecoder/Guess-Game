@@ -4,7 +4,7 @@
 
 // Implement randomly generated numbers
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 // const number = document.querySelector(".number");
 // number.textContent = secretNumber;
 
@@ -89,6 +89,8 @@ check.addEventListener('click', function (e) {
 const reload = document.querySelector('.again');
 
 reload.addEventListener('click', function (e) {
+    
+    secretNumber = Math.trunc(Math.random() * 20) + 1; 
 
     //Restore the background color
     document.querySelector('.body-bg').style.backgroundColor = '#222222';
@@ -106,10 +108,10 @@ reload.addEventListener('click', function (e) {
     number.textContent = `?`;
 
     //Restore Score 
-    let score = 20;
+    score = 20;
     document.querySelector('.score').textContent = score;
 
     //Restore Input Field 
-    document.querySelector('.guess').value = clearTimeout;
+    document.querySelector('.guess').value = '';
 
 })
